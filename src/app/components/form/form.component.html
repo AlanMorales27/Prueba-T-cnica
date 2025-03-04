@@ -1,0 +1,103 @@
+<div class="div-p">
+    <div class="d-flex justify-content-center div-i">
+        <form [formGroup] = "userForm" (ngSubmit)="addUser()" class="row g-3">
+            <!-- Campo de nombre -->
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">Nombre</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="inputName"
+                formControlName="name"
+                >
+                @if (this.userForm.get('name')?.dirty &&
+                this.userForm.get('name')?.invalid) {
+                    <div class="error">
+                        @if (this.userForm.get('name')?.hasError('required')) {
+                            <p>El nombre es requerido</p>
+                        } @else if (this.userForm.get('name')?.hasError('minlength')) {
+                            <p>No tiene los suficientes carácteres</p>}
+                    </div>
+                }
+              </div>
+        
+            <!-- Campo de Usuario -->
+    
+            <div class="col-md-6">
+                <label for="User" class="form-label">Usuario</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="User" 
+                formControlName="user">
+                @if (this.userForm.get('user')?.dirty &&
+                this.userForm.get('user')?.invalid) {
+                    <div class="error">
+                        @if (this.userForm.get('user')?.hasError('required')) {
+                            <p>El nombre del usuario es requerido</p>
+                        } @else if (this.userForm.get('user')?.hasError('minlength')) {
+                            <p>El nombre no tiene los suficientes carácteres</p>
+                        }  @else if (this.userForm.get('user')?.hasError('maxlength')) {
+                            <p>El nombre tiene carácteres de mas</p>
+                        } 
+                    </div>}
+              </div>
+    
+        
+            <!-- Campo de correo -->
+            <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input 
+                type="Email" 
+                class="form-control" 
+                id="email"
+                formControlName="email">
+                @if (this.userForm.get('email')?.dirty &&
+                this.userForm.get('email')?.invalid) {
+                    <div class="error">
+                        @if (this.userForm.get('email')?.hasError('required')) {
+                            <p>El correo es requerido</p>
+                        } @else if (this.userForm.get('email')?.hasError('email')) {
+                            <p>Debes cumplir con el formato de correo electronico</p>
+                        }
+                    </div>
+                }
+              </div>
+    
+        
+            <!-- Campo de Ciudad -->
+            <div class="col-md-6">
+                <label for="city" class="form-label">Ciudad</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="city"
+                formControlName ="city">
+                @if (this.userForm.get('city')?.dirty &&
+                this.userForm.get('city')?.invalid) {
+                    <div class="error">
+                        @if (this.userForm.get('city')?.hasError('required')) {
+                            <p>El nombre de la ciudad es requerido</p>
+                        }
+                    </div>
+                }
+              </div>
+        
+              <!-- Campo de empresa -->
+              <div class="col-md-6">
+                <label for="city" class="form-label">Compañia</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="city"
+                formControlName ="company">
+                </div>
+    
+    
+                <button type="submit" class="btn btn-lg btn-outline-primary">Agregar</button>
+                <p>{{message}}</p>
+        </form>
+    </div>
+        
+    
+</div>

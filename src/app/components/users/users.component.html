@@ -1,0 +1,32 @@
+<table class="table mt-5 px-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Email</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">Compañia</th>
+      </tr>
+    </thead>
+    <tbody>
+    @for (user of userService.users; track user.id) {
+        <tr>
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.user}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.company}}</td>
+        </tr>
+    }
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center mt-5">
+    <button type="button" class="btn btn-lg btn-outline-primary" (click)="setVisible()">Agregar usuario</button>
+  </div>
+
+  @if (isVisible == true) {
+    <app-form [isVisible] = "isVisible" (isVisibleChange) = "isVisible = $event"></app-form>
+  }
+ 
