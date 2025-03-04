@@ -40,5 +40,14 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  delateItem(id: number){
+    const index = this.userService.users.findIndex((user)=> user.id == id )
+
+    if(index !== -1){
+      this.userService.users.splice(index,1)
+    }
+
+  }
+
 
 }

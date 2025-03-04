@@ -18,6 +18,12 @@
           <td>{{user.email}}</td>
           <td>{{user.city}}</td>
           <td>{{user.company}}</td>
+          <td>
+            <button 
+            type="button" 
+            class="btn btn-outline-danger"
+            (click)="delateItem(user.id)">Eliminar</button>
+        </td>
         </tr>
     }
     </tbody>
