@@ -40,9 +40,12 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  //Eliminar elemento de la lista
   delateItem(id: number){
+    // Buscar id y devolver la posición
     const index = this.userService.users.findIndex((user)=> user.id == id )
 
+    // Devuelve -1 si no encuentra el id. Si es diferente a -1 elimina la posición en el arreglo
     if(index !== -1){
       this.userService.users.splice(index,1)
     }
